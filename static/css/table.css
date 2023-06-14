@@ -1,0 +1,27 @@
+.tableBodyWrap{
+    margin: 0 auto;
+    width: 100%;
+}
+
+.tableBodyWrap > h2{
+    text-align: center;
+    margin-top: 50px;
+}
+
+.tableDis{
+    margin: 0 auto;
+    width: 500px;
+    display: grid;
+    grid-template-columns: 165px 165px 165px;
+    grid-template-rows: 165px 165px 165px;
+}
+
+.tableDis > div{
+    border: 1px solid silver;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 7px;
+    box-sizing: border-box;
+    margin: 5px;
+}

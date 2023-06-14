@@ -1,0 +1,60 @@
+.loginBody{
+    width: 100%;
+}
+
+.loginBody > h2{
+    text-align: center;
+    margin-top: 50px;
+}
+
+.loginInputWrap{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid silver;
+    width: 500px;
+    padding: 15px 30px;
+    box-sizing: border-box;
+}
+
+.loginInputWrap > div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 15px 0px;
+}
+
+.loginInputWrap > div > p{
+    text-align: left;
+}
+
+.loginInputWrap > div > input{
+    height: 30px;
+    width: 200px;
+}
+
+.signupBtWrap{
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.signupBt, .loginBt{
+    background-color: red;
+    color: white;
+    border: 0;
+    border-radius: 5px;
+    margin: 0 auto;
+    font-size: 18px;
+    width: 500px;
+    padding: 7px 0;
+    cursor: pointer;
+}
+
+.loginBt{
+    margin-top: 15px;
+}

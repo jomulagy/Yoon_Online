@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>자리 현황</title>
+    <link rel="stylesheet" href="{% static 'css/table.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+<body>
+    <div class="tableWrap">
+        {% include 'header.html' %}
+        <div class="tableBodyWrap">
+            <h2>- 자리 현황 -</h2>
+            <div class="tableDis">
+                {% for table in table_list %}
+                    {% if table.able %}
+                        <div style = "background-color: green;">{{table.id}}</div>
+                    {% else %}
+                        <div style = "background-color: red;">{{table.id}}</div>
+                    {% endif %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

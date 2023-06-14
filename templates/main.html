@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yoon's online(윤가네 온라인)</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+<body>
+    {% include 'message.html' %}
+    <div class="mainWrap">
+        {% include 'header.html' %}
+        <div class="mainTop">
+            <button onclick="location.href='{% url 'store:table_list' %}'">자리 현황</button>
+        </div>
+        <div class="mainBottom">
+            <h2>윤가네 주문하기</h2>
+            <div class="mainBodyWrap">
+                <div class="mainLeft">
+                    {% for category in categories %}
+                    <div class="menuKind">{{category.name}}</div>
+                            <div class="menuTabWrap">
+                                {% for menu in category.menu_set.all %}
+                                    <div class="menuTap">
+                                        <div class="menuName">
+                                            <p class = "menu_name">{{menu.name}}</p>
+                                            <p class = "menu_price">{{menu.price}}원</p>
+                                        </div>
+                                        <div class="menuImg">
+                                            <img src="{{menu.image.url}}" />
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+
+                    {% endfor %}
+
+                </div>
+                <div class="mainRight">
+                    <div class="mainRightTitle">주문표</div>
+                    <div id = "mainRightContent">
+                    </div>
+
+                    <div class="orderBtWrap">
+                        주문하기
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

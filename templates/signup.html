@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인</title>
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+<body>
+    {% include 'message.html' %}
+    <div class="loginWrap">
+        {% include 'header.html' %}
+        <div class="loginBody">
+            <h2>- 회원가입 -</h2>
+            <form action = "{% url 'account:sign-up' %}" method = "post">
+                {% csrf_token %}
+                <div class="loginInputWrap">
+                    <div>
+                        <p>이름</p>
+                        <input type="text" name = "name"/>
+                    </div>
+                    <div>
+                        <p>아이디</p>
+                        <input type="text" name = "username"/>
+                    </div>
+                    <div>
+                        <p>비밀번호</p>
+                        <input type="password" name = "password"/>
+                    </div>
+                    <div>
+                        <p>번호</p>
+                        <input type="text " name = "phonenum"/>
+                    </div>
+                </div>
+                <input id = "signupSB" type = "submit"  style = "display:none">
+            </form>
+                <div class="signupBtWrap">
+                    <button class="signupBt">회원가입</button>
+                    <button class="loginBt" onclick="location.href='{% url 'account:login' %}'">로그인 하러 가기</button>
+
+                </div>
+
+
+        </div>
+    </div>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script type = "text/javascript">
+    $(".signupBt").click(function(){
+        $("#signupSB").trigger("click");
+    });
+</script>
+</body>
+</html>

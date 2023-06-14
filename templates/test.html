@@ -1,0 +1,48 @@
+<div id="cart">
+  <h2>Shopping Cart</h2>
+  <ul id="cart-items"></ul>
+  <p>Total: <span id="total-price">$0.00</span></p>
+</div>
+
+<div id="products">
+  <h2>Products</h2>
+  <ul>
+    <li data-name="Product 1" data-price="10.00">Product 1 - $10.00</li>
+    <li data-name="Product 2" data-price="15.00">Product 2 - $15.00</li>
+    <li data-name="Product 3" data-price="20.00">Product 3 - $20.00</li>
+  </ul>
+</div>
+
+<script>
+    $(document).ready(function() {
+  var cartItems = [];
+
+  // Add item to cart
+  $('#products li').click(function() {
+    var name = $(this).data('name');
+    var price = $(this).data('price');
+    var item = {
+      name: name,
+      price: price
+    };
+    cartItems.push(item);
+    updateCart();
+  });
+
+  // Update the cart
+  function updateCart() {
+    var cartList = $('#cart-items');
+    var totalPrice = 0;
+
+    cartList.empty();
+
+    $.each(cartItems, function(index, item) {
+      var listItem = $('<li>').text(item.name + ' - $' + item.price.toFixed(2));
+      cartList.append(listItem);
+      totalPrice += item.price;
+    });
+
+    $('#total-price').text('$' + totalPrice.toFixed(2));
+  }
+});
+</script>

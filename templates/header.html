@@ -1,0 +1,12 @@
+<div class="mainNav">
+    <h2 onclick="location.href='{% url 'main:index' %}'">Yoon's online</h2>
+    <div>
+        {% if user.is_authenticated %}
+            환영합니다 {{request.user.get_full_name}}님
+            <button onclick="location.href='{% url 'account:logout' %}'">로그아웃</button>
+        {% else %}
+            <button onclick="location.href='{% url 'account:login' %}'">로그인</button>
+            <button onclick="location.href='{% url 'account:sign-up' %}'">회원가입</button>
+        {% endif %}
+    </div>
+</div>

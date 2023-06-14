@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인</title>
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+    <link rel="stylesheet" href="{% static '/css/index.css' %}">
+</head>
+<body>
+<div class="loginWrap">
+    {% include 'header.html' %}
+    <div class="loginBody">
+        <h2>- 로그인 -</h2>
+        <form action = "{% url 'account:login' %}" method = "post">
+            {% csrf_token %}
+            <div class="loginInputWrap">
+                <div>
+                    <p>아이디</p>
+                    <input type="text" name = "username"/>
+                </div>
+                <div>
+                    <p>비밀번호</p>
+                    <input type="password" name = "password"/>
+                </div>
+            </div>
+            <div class="signupBtWrap">
+                <button class="loginBt" >로그인</button>
+                <input id = "loginSubmit" type = "submit" style = "display : none;">
+            </div>
+        </form>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script type = "text/javascript">
+    $(".loginBt").click(function(){
+        $("#loginSubmit).trigger("click");
+    }
+</script>
+</body>
+</html>

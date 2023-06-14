@@ -1,0 +1,150 @@
+.mainTop{
+    width: 100vw;
+    height: 450px;
+    background: url('../img/yoon.png');
+    background-size: cover;
+    position: relative;
+}
+
+.mainTop > button{
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    bottom: 15px;
+    background-color: white;
+    border: 1px solid black;
+    padding: 5px 15px;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+.mainBottom > h2{
+    text-align: center;
+}
+
+.mainBodyWrap{
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
+
+.mainLeft{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.mainLeft > .menuKind{
+    width: 100%;
+    background-color: silver;
+    border: 0.4px solid white;
+    color: white;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.menuTabWrap{
+    display: none;
+    cursor: pointer;
+    border-left: 1px solid silver;
+    border-right: 1px solid silver;
+}
+
+.menuTap{
+    padding-left: 15px;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid silver;
+}
+
+.menuName{
+    display: flex;
+    flex-direction: column;
+}
+
+.menuName > p{
+    /*margin: 0;*/
+}
+
+.menuImg img{
+    height: 100%;
+    width : 10rem;
+}
+
+.menuKind{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mainRight{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.mainRightTitle{
+    background-color: black;
+    color: white;
+    padding: 10px;
+}
+
+.selectedMenuTab{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid silver;
+}
+
+.selectedMenuDetail{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.selectedPriceWrap{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.deleteBt{
+    border: 0.5px solid black;
+    padding: 0px 5px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.selectedNum{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.menuNumber{
+    margin: 0px 5px;
+}
+
+.minusBt, .plusBt{
+    border: 0.5px solid silver;
+    padding: 0px 5px;
+    font-size: 17px;
+    cursor: pointer;
+}
+.orderBtWrap{
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+    border: 0;
+    padding: 6px 0;
+    letter-spacing: 5px;
+    cursor: pointer;
+}
