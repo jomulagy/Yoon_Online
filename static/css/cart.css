@@ -1,0 +1,206 @@
+.cartTitle{
+    width: 100vw;
+    text-align: center;
+}
+
+.cartList{
+    width: 70vw;
+    margin: 0 auto;
+    padding: 10px 20px 15px 20px;
+    border: 1px solid silver;
+}
+
+.cartTapTop{
+    width: 100%;
+}
+
+.cartTapTopLeft{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.cartTapTop{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.cartButton {
+    font-size: 15px;
+    width: 95px;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 3px 5px 3px 10px;
+    background-color: #cbcbcb;
+    border: 0;
+    border-radius: 15px;
+}
+
+.cartButton > p{
+    margin-left: 10px;
+}
+
+.cartButton > img{
+    width: 20px;
+    height: 25px;
+}
+
+.cartTime{
+    color: #7e7e7e;
+    margin-left: 10px;
+}
+
+.cartTapTopRight{
+    color: #d51111;
+    font-weight: 500;
+}
+
+.cartTapBottom{
+    display: flex;
+    flex-direction: row;
+}
+
+.cartMenuImg{
+    width: 100px;
+    height: 100px;
+    border: 1px solid #4d4d4d;
+    border-radius: 10px;
+    z-index: 0;
+    position: relative;
+}
+
+.cartMenuImg > img{
+    width: 100px;
+    height: 100px;
+    border-radius: 9px;
+    filter: opacity(0.5) drop-shadow(0 0 0 black);
+    z-index: 0;
+}
+
+.cartMenuImg > p{
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    color: white;
+    font-weight: bolder;
+    font-size: 18px;
+    z-index: 10;
+}
+
+.cartMenuInfo{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: space-between;
+    margin-left: 15px;
+}
+
+.cartMenuName, .cartMenuIntro{
+    margin: 5px 0px;
+}
+
+.cartMenuInfo > div > button{
+    border: 0.5px solid #646464;
+    border-radius: 5px;
+    padding: 5px 15px;
+    color: #646464;
+    font-size: 16px;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.cartDetailTapWrap{
+    width: 60vw;
+    margin: 20px auto 30px auto;
+    border: 1px solid silver;
+}
+
+@media(max-width: 400px){
+    .cartDetailTapWrap{
+        width: 80vw;
+    }
+}
+
+.cartDetailTop{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px 15px 20px;
+}
+
+.cartDetailTop > h3{
+    color: #fd1d1d;
+    margin: 0;
+}
+
+.cartDivision{
+    height: 1.5px;
+    background-color: silver;
+    margin: 5px 0px;
+}
+
+.cartDetailInfo{
+    padding: 10px 0px;
+}
+
+.cartDetailInfo > div{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0px 20px;
+    box-sizing: border-box;
+}
+
+.cartDetailInfo > div > p{
+    margin: 5px 0;
+    color: #808080;
+}
+
+.cartDetailMenuInfo, .cartTotalPrice{
+    padding: 10px 20px;
+}
+
+.cartDetailMenuInfo > h3{
+    margin: 15px 0;
+}
+
+.cartDetailMenuInfo > div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.cartDetailMenuInfo > div > p{
+    margin: 10px 0;
+}
+
+.cartTotalPrice{
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.cartUserInfo{
+    padding: 10px 20px;
+}
+
+.cartUserInfo > h3{
+    margin: 15px 0;
+}
+
+.cartUserInfo > div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.cartUserInfo > div > p{
+    margin: 10px 0;
+    color: #808080;
+}

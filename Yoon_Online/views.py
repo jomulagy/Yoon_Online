@@ -6,3 +6,9 @@ def index(request):
         "categories" : Category.objects.all()
     }
     return render(request,"main.html",context)
+
+def cart(request):
+    return render(request,"cart.html")
+
+def cartDetail(request):
+    return render(request,"cartDetail.html")

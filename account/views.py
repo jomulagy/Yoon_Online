@@ -21,3 +21,6 @@ def signup(request):
 
     else:
         return render(request, 'signup.html')
+
+def editInfo(request):
+    return render(request, 'editInfo.html')
