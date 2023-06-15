@@ -12,29 +12,39 @@
         {% include 'header.html' %}
         <div class="editInfo">
             <h3>내 정보 수정</h3>
-            <div class="editInfoBox">
-                <div>
-                    <p>이름</p>
-                    <input type="text" />
+            <form action = "{% url 'account:user_update' %}" method = "post">
+                {% csrf_token %}
+                <div class="editInfoBox">
+                    <div>
+                        <p>이름</p>
+                        <input type="text" name = "name" value="{{user.get_full_name}}"/>
+                    </div>
+                    <div>
+                        <p>아이디</p>
+                        <input type="text" name = "username" value = "{{user.username}}" disabled/>
+                    </div>
+                    <div>
+                        <p>비밀번호</p>
+                        <input type="password" name = "password" placeholder="새 비밀번호"/>
+                    </div>
+                    <div>
+                        <p>번호</p>
+                        <input type="text" name = "phone_number" value = "{{user.phone_number}}"/>
+                    </div>
                 </div>
-                <div>
-                    <p>아이디</p>
-                    <input type="text" />
-                </div>
-                <div>
-                    <p>비밀번호</p>
-                    <input type="password" />
-                </div>
-                <div>
-                    <p>번호</p>
-                    <input type="text" />
-                </div>
-            </div>
+                <input type = "submit" id = "editSB" style = "display:none">
+            </form>
             <div class="signupBtWrap">
-                <button class="loginBt">정보 수정</button>
-                <button class="loginBt">회원 탈퇴</button>
+                <button id= "editBT" class="loginBt">정보 수정</button>
+                <button class="loginBt" onclick = "location.href = '{% url 'account:user_delete' %}'">회원 탈퇴</button>
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script type = "text/javascript">
+        $("#editBT").click(function(){
+            $("#editSB").trigger("click")
+        })
+    </script>
 </body>
 </html>

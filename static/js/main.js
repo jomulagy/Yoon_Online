@@ -20,8 +20,6 @@ $(document).ready(function(){
 
     });
 
-
-
     function updateCart() {
         var cartList = $('#mainRightContent');
         var totalPrice = 0;
@@ -135,7 +133,7 @@ $(".orderBtWrap").click(function(){
       success: function(response) {
         if(response.success){
             alert("주문이 접수되었습니다.")
-            location.href = "/food/order/list/";
+            location.href = "/food/order/detail/"+response.id;
         }
       },
       error: function(xhr, status, error) {

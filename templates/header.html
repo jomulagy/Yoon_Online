@@ -2,7 +2,7 @@
     <h2 onclick="location.href='{% url 'main:index' %}'">Yoon's online</h2>
     <div>
         {% if user.is_authenticated %}
-            환영합니다 {{request.user.get_full_name}}님
+            환영합니다 <a href = "{% url 'account:user_update' %}">{{request.user.get_full_name}}</a>님
             <button onclick="location.href='{% url 'food:order_list' %}'">주문내역</button>
             <button onclick="location.href='{% url 'account:logout' %}'">로그아웃</button>
 

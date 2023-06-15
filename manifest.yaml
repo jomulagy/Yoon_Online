@@ -1,0 +1,6 @@
+applications:
+  - name: yoon_online-1
+    buildpack: paketo-community/python
+    memory: 512M
+    instances: 1
+    command : python manage.py runserver 8080

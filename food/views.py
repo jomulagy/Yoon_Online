@@ -16,7 +16,7 @@ def OrderCreate(request):
                 new = Menu_Order(menu = menu, order = order, quantity = item['quantity'])
                 new.save()
 
-            return JsonResponse({'success' : True},status = 200)
+            return JsonResponse({'success' : True,"id" : order.id},status = 200)
         else:
             return JsonResponse({'success':False,"error" : "로그인 후 이용해주세요."}, status=400)
 

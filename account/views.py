@@ -21,3 +21,24 @@ def signup(request):
 
     else:
         return render(request, 'signup.html')
+
+def user_update(request):
+    if request.method == "POST":
+        user = request.user
+
+        user.first_name = request.POST.get("name")[0]
+        user.last_name = request.POST.get("name")[2:]
+        if request.POST.get("password"):
+            user.set_password(request.POST.get("password"))
+        user.phone_number = request.POST.get("phone_number")
+        user.save()
+        auth.login(request,user)
+        return redirect("main:index")
+    else:
+        return render(request,"editInfo.html")
+
+def user_delete(request):
+    if request.user.is_authenticated:
+        request.user.delete()
+        auth.logout(request)
+    return redirect("main:index")
