@@ -135,7 +135,7 @@ $(".orderBtWrap").click(function(){
       success: function(response) {
         if(response.success){
             alert("주문이 접수되었습니다.")
-            location.reload();
+            location.href = "/food/order/list/";
         }
       },
       error: function(xhr, status, error) {

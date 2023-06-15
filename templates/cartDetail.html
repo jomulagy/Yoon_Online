@@ -12,7 +12,13 @@
     {% include 'header.html' %}
     <div class="cartDetailTapWrap">
         <div class="cartDetailTop">
-          <h3>서빙완료</h3>
+            {% if order.status == "none" %}
+                <h3>주문확인중..</h3>
+            {% elif order.status == "in_progress" %}
+                <h3>조리중..</h3>
+            {% else %}
+                <h3>조리완료</h3>
+            {% endif %}
           <div class="cartButton">
               <img src="{% static 'img/cart.png'' %}" />
               <p>식사주문</p>
@@ -21,45 +27,40 @@
         <div class="cartDivision"></div>
         <div class="cartDetailInfo">
             <div>
-                <p>좌석번호</p>
-                <p>flnsdgioegoehgosdg</p>
+                <p>주문번호</p>
+                <p>{{order.id}}</p>
             </div>
             <div>
                 <p>주문시간</p>
-                <p>2023.01.19 16:00:00</p>
+                <p>{{order.created_at|date:'Y-m-d H:i'}}</p>
             </div>
         </div>
         <div class="cartDivision"></div>
         <div class="cartDetailMenuInfo">
             <h3>주문내역</h3>
-            <div>
-                <p>- 치즈김밥</p>
-                <p>3,5000원</p>
-            </div>
-            <div>
-                <p>- 치즈김밥</p>
-                <p>3,5000원</p>
-            </div>
-            <div>
-                <p>- 치즈김밥</p>
-                <p>3,5000원</p>
-            </div>
+            {% for item in order.menu_order_set.all %}
+                <div>
+                    <p>- {{item.menu.name}} x {{item.quantity}}</p>
+                    <p>{{item.get_price}}원</p>
+                </div>
+            {% endfor %}
+
         </div>
         <div class="cartDivision"></div>
         <div class="cartTotalPrice">
             <h3>총 상품금액</h3>
-            <h3>10,000원</h3>
+            <h3>{{order.total_price}}원</h3>
         </div>
         <div class="cartDivision"></div>
         <div class="cartUserInfo">
             <h3>주문자 정보</h3>
             <div>
                 <p>이름</p>
-                <p>이혜린</p>
+                <p>{{order.user.get_full_name}}</p>
             </div>
             <div>
                 <p>연락처</p>
-                <p>010-7561-0561</p>
+                <p>{{order.user.get_phone_num}}</p>
             </div>
         </div>
     </div>

@@ -13,36 +13,46 @@
     <div class="cartTitle">
       <h2>주문 내역</h2>
     </div>
-    <div class="cartList">
-        <div class="cartTapTop">
-            <div class="cartTapTopLeft">
-                <div class="cartButton">
-                    <img src="{% static 'img/cart.png'' %}" />
-                    <p>배달주문</p>
+      {% for order in order_list %}
+        <div class="cartList">
+            <div class="cartTapTop">
+                <div class="cartTapTopLeft">
+                    <div class="cartButton">
+                        <img src="{% static 'img/cart.png'' %}" />
+                        <p>배달주문</p>
+                    </div>
+                    <div class="cartTime">
+                        {{order.created_at|date:'Y-m-d H:i'}}
+                    </div>
                 </div>
-                <div class="cartTime">
-                    2023.01.02 15:00:33
+                {% if order.status == "none" %}
+                    <a href = "{% url 'food:order_delete' order.id %}">
+                        <p class="cartTapTopRight">
+                            주문취소
+                        </p>
+                    </a>
+
+                {% else %}
+                    <p class="cartTapTopRight">
+
+                    </p>
+                {% endif %}
+            </div>
+            <div class="cartTapBottom">
+                <div class="cartMenuImg">
+                    <img src="{% static 'img/yoon.jpeg'' %}" />
+                </div>
+                <div class="cartMenuInfo">
+                    <p class="cartMenuName">윤가네</p>
+                    <p class="cartMenuIntro">상명대 대표 맛집</p>
+                    <div>
+                        <button onclick="location.href='{% url 'main:index' %}'">재주문</button>
+                        <button onclick="location.href='{% url 'food:order_detail' order.id %}'">주문상세</button>
+                    </div>
                 </div>
             </div>
-            <p class="cartTapTopRight">
-                주문취소
-            </p>
         </div>
-        <div class="cartTapBottom">
-            <div class="cartMenuImg">
-                <img src="{% static 'img/food.jpeg'' %}" />
-                <p>준비중</p>
-            </div>
-            <div class="cartMenuInfo">
-                <p class="cartMenuName">손큰육회</p>
-                <p class="cartMenuIntro">한우 A++ 육사시미</p>
-                <div>
-                    <button>재주문</button>
-                    <button onclick="location.href='{% url 'main:cartDetail' %}'">주문상세</button>
-                </div>
-            </div>
-        </div>
-    </div>
+      {% endfor %}
   </div>
 </body>
 </html>

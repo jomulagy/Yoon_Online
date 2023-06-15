@@ -14,8 +14,13 @@ class Menu(models.Model):
     def __str__(self):
         return self.name
 
+STATUS_CHOICES = (
+    ('none', 'none'),
+    ('in_progress','in_progress'),
+    ('done','done')
+)
 class Order(models.Model):
-
+    status = models.CharField(max_length=30, choices=STATUS_CHOICES, default = 'none')
     created_at = models.DateTimeField(auto_now_add = True)
     user = models.ForeignKey("account.User", on_delete=models.CASCADE)
 
@@ -23,11 +28,14 @@ class Order(models.Model):
         sum = 0
         menu_orders = self.menu_order_set.all()
         for item in menu_orders:
-            sum+= item.menu.price * item.quantity
+            sum+= item.get_price()
         return sum
 
 class Menu_Order(models.Model):
     menu = models.ForeignKey(Menu, on_delete=models.CASCADE)
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     quantity = models.IntegerField(null = False)
+
+    def get_price(self):
+        return self.menu.price * self.quantity
 

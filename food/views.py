@@ -22,3 +22,16 @@ def OrderCreate(request):
 
     # POST 요청이 아니거나 AJAX 요청이 아닌 경우
     return JsonResponse({}, status=404)
+
+def OrderList(request):
+    order_list = Order.objects.filter(user = request.user)
+    return render(request,"cart.html",{"order_list":order_list})
+
+def OrderDetail(request,id):
+    order = Order.objects.get(id = id)
+    return render(request,"cartDetail.html",{"order":order})
+
+def OrderDelete(request,id):
+    order = Order.objects.get(id = id)
+    order.delete()
+    return redirect('food:order_list')
