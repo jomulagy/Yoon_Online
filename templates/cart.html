@@ -19,14 +19,14 @@
                 <div class="cartTapTopLeft">
                     <div class="cartButton">
                         <img src="{% static 'img/cart.png'' %}" />
-                        <p>배달주문</p>
+                        <p>식사 주문</p>
                     </div>
                     <div class="cartTime">
                         {{order.created_at|date:'Y-m-d H:i'}}
                     </div>
                 </div>
                 {% if order.status == "none" %}
-                    <a href = "{% url 'food:order_delete' order.id %}">
+                    <a href = "{% url 'food:order_delete' order.id %}" id="cartCheckLink">
                         <p class="cartTapTopRight">
                             주문취소
                         </p>
