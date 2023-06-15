@@ -58,3 +58,27 @@
 .loginBt{
     margin-top: 15px;
 }
+
+.editInfo{
+    width: 100%;
+    text-align: center;
+}
+
+.editInfoBox{
+    width: 500px;
+    border: 1px solid silver;
+    margin: 0 auto;
+}
+
+.editInfoBox > div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px 30px;
+    box-sizing: border-box;
+}
+
+.editInfoBox > div > input{
+    height: 30px;
+    width: 200px;
+}

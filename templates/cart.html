@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>장바구니</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+</head>
+<body>
+  <div class="cartWrap">
+    {% include 'header.html' %}
+    <div class="cartTitle">
+      <h2>주문 내역</h2>
+    </div>
+    <div class="cartList">
+        <div class="cartTapTop">
+            <div class="cartTapTopLeft">
+                <div class="cartButton">
+                    <img src="{% static 'img/cart.png'' %}" />
+                    <p>배달주문</p>
+                </div>
+                <div class="cartTime">
+                    2023.01.02 15:00:33
+                </div>
+            </div>
+            <p class="cartTapTopRight">
+                주문취소
+            </p>
+        </div>
+        <div class="cartTapBottom">
+            <div class="cartMenuImg">
+                <img src="{% static 'img/food.jpeg'' %}" />
+                <p>준비중</p>
+            </div>
+            <div class="cartMenuInfo">
+                <p class="cartMenuName">손큰육회</p>
+                <p class="cartMenuIntro">한우 A++ 육사시미</p>
+                <div>
+                    <button>재주문</button>
+                    <button onclick="location.href='{% url 'main:cartDetail' %}'">주문상세</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</body>
+</html>

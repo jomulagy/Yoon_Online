@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>회원정보수정</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+</head>
+<body>
+    <div class="editInfoWrap">
+        {% include 'header.html' %}
+        <div class="editInfo">
+            <h3>내 정보 수정</h3>
+            <div class="editInfoBox">
+                <div>
+                    <p>이름</p>
+                    <input type="text" />
+                </div>
+                <div>
+                    <p>아이디</p>
+                    <input type="text" />
+                </div>
+                <div>
+                    <p>비밀번호</p>
+                    <input type="password" />
+                </div>
+                <div>
+                    <p>번호</p>
+                    <input type="text" />
+                </div>
+            </div>
+            <div class="signupBtWrap">
+                <button class="loginBt">정보 수정</button>
+                <button class="loginBt">회원 탈퇴</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
